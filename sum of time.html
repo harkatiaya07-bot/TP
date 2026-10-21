@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum of The Time</title>
+</head>
+<body>
+
+<h2>Sum of The Time</h2>
+
+<form id="form">
+
+    <p>Enter the first time:</p>
+    Hour(s) <input type="number" id="h1" value="0" min="0">
+    Minute(s) <input type="number" id="m1" value="0" min="0">
+    Second(s) <input type="number" id="s1" value="0" min="0">
+
+    <p>Enter the second time:</p>
+    Hour(s) <input type="number" id="h2" value="0" min="0">
+    Minute(s) <input type="number" id="m2" value="0" min="0">
+    Second(s) <input type="number" id="s2" value="0" min="0">
+
+    <p>Enter the third time:</p>
+    Hour(s) <input type="number" id="h3" value="0" min="0">
+    Minute(s) <input type="number" id="m3" value="0" min="0">
+    Second(s) <input type="number" id="s3" value="0" min="0">
+
+    <p>Total of the three times:</p>
+
+    Day(s) <input type="text" id="d" readonly>
+    Hour(s) <input type="text" id="h" readonly>
+    Minute(s) <input type="text" id="m" readonly>
+    Second(s) <input type="text" id="s" readonly>
+
+    <br><br>
+
+    <button type="button" onclick="sum()">Sum</button>
+    <button type="reset" onclick="clearResult()">Clear</button>
+
+</form>
+
+<script>
+
+function sum() {
+
+    let h1 = Number(document.getElementById("h1").value);
+    let m1 = Number(document.getElementById("m1").value);
+    let s1 = Number(document.getElementById("s1").value);
+
+    let h2 = Number(document.getElementById("h2").value);
+    let m2 = Number(document.getElementById("m2").value);
+    let s2 = Number(document.getElementById("s2").value);
+
+    let h3 = Number(document.getElementById("h3").value);
+    let m3 = Number(document.getElementById("m3").value);
+    let s3 = Number(document.getElementById("s3").value);
+
+    // Convert all times into seconds
+    let total = (h1 + h2 + h3) * 3600
+              + (m1 + m2 + m3) * 60
+              + s1 + s2 + s3;
+
+    // Calculate days, hours, minutes and seconds
+    let d = Math.floor(total / 86400);
+    total = total % 86400;
+
+    let h = Math.floor(total / 3600);
+    total = total % 3600;
+
+    let m = Math.floor(total / 60);
+    let s = total % 60;
+
+    // Display the result
+    document.getElementById("d").value = d;
+    document.getElementById("h").value = h;
+    document.getElementById("m").value = m;
+    document.getElementById("s").value = s;
+}
+
+function clearResult() {
+    document.getElementById("d").value = "";
+    document.getElementById("h").value = "";
+    document.getElementById("m").value = "";
+    document.getElementById("s").value = "";
+}
+
+</script>
+
+</body>
+</html>

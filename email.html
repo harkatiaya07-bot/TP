@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Validation</title>
+</head>
+<body>
+
+    <h2>Email Address Validation</h2>
+
+    <label>Enter your email:</label>
+    <input type="text" id="email">
+
+    <button onclick="checkEmail()">Check</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkEmail() {
+            let email = document.getElementById("email").value;
+            let result = document.getElementById("result");
+
+            let position = email.indexOf("@");
+
+            if (position > 0 &&
+                email.indexOf(".", position) > position + 1 &&
+                email.indexOf(".", position) < email.length - 1) {
+
+                result.innerHTML = "Valid email";
+                result.style.color = "green";
+
+            } else {
+                result.innerHTML = "Invalid email";
+                result.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>

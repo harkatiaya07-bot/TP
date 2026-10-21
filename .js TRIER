@@ -1,0 +1,6 @@
+function trier(liste) {
+  return liste.sort((a, b) => a - b);
+}
+
+let nombres = [42, 5, 17, 100, 23];
+console.log(trier(nombres)); 
